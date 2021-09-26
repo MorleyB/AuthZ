@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <a href="/" role="button">Home</a>
+    {% if current_user.is_authenticated %}
+        <a href="/profile" role="button" class="active">Profile</a>
+        <a href="/logout" role="button">Logout</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<table>
+    <caption>Protected Resource</caption>
+    <thead>
+      <tr>
+        <th>Updated At</th>
+        <th>Timezone</th>
+        <th>Locale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Updated At">{{ current_user.locate().updated_at }}</td>
+        <td data-label="Timezone">{{ current_user.locate().zoneinfo }}</td>
+        <td data-label="Locale">{{ current_user.locate().locale }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

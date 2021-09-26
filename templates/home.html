@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
+{% block header %}
+    <a href="/" role="button">Home</a>
+    {% if current_user.is_authenticated %}
+        <a href="/profile" role="button">Profile</a>
+        <a href="/logout" role="button">Logout</a>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-<div class="row">
+<div class="row" style="padding-top: 5rem;">
     <div class="col-sm"></div>
-    <!-- Adding some flex properties to center the form and some height to the page, these can be omitted -->
     <div class="col-sm">
-        <p>Hi!</p>
-        <form>
+        <form method="get" action="login">
             <div class="button-group">
                 <button class="primary large">Login</button>
             </div>
