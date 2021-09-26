@@ -13,12 +13,14 @@ Grant-Type Flow
 ===
 
 The browser hits the /login route and the app server sends a request to Okta.
-
+![Alt text](screenshots/login.png?raw=true "Login")
 
 Okta redirects the user to it's authentication url.
+![Alt text](screenshots/okta.png?raw=true "Okta")
 
 
 Upon successful authentication, Okta will redirect the user to the app server's callback route, where the server will request tokens and then use the token to request the user's Okta profile.
+![Alt text](screenshots/protected.png?raw=true "Protected")
 
 
 The profile page is a restricted resource.
